@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "Dofuspourlesnoobs autopilotage",
+  "version": "1.0",
+  "description": "Support autopilotage pour Dofuspourlesnoobs!",
+  "icons": {
+    "16": "icon.png"
+  },
+
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "AutopilotageDofuspourlesnoobs"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.dofuspourlesnoobs.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "https://www.dofuspourlesnoobs.com/*"
+  ]
+}

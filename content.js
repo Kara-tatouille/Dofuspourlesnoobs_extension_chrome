@@ -1,8 +1,16 @@
 //Highlights extension icon
 chrome.runtime.sendMessage({todo: "showPageAction"});
 
+let paragraphs;
 
-let paragraphs = document.getElementsByClassName('paragraph');
+if (document.getElementsByTagName("li")){
+    paragraphs = document.getElementsByTagName("li");
+}
+else {
+    paragraphs = document.getElementsByClassName('paragraph');
+
+}
+
 let pos;
 
 function checkPosExists(paragraph) {

@@ -4,11 +4,12 @@
   "version": "1.0",
   "description": "Support autopilotage pour Dofuspourlesnoobs!",
   "icons": {
-    "16": "icon.png"
+    "16": "icon16.png",
+    "400": "icon400.png"
   },
 
   "page_action": {
-    "default_icon": "icon.png",
+    "default_icon": "icon400.png",
     "default_popup": "popup.html",
     "default_title": "AutopilotageDofuspourlesnoobs"
   },

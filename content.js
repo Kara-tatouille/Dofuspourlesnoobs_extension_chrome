@@ -11,14 +11,37 @@ function checkPosExists(paragraph) {
     }
 }
 
+function copyToClipboard(i) {
+    let copyText = document.getElementById(`input${i}`);
+    copyText.select();
+    document.execCommand('copy')
+}
+
+
+
 
 for (let i=0;i<paragraphs.length;i++) {
      if (checkPosExists(paragraphs[i])) {
         pos = paragraphs[i].outerHTML.split("[")[1].split("]")[0];
 
-        let position = document.createElement('p');
-        position.textContent = "/travel " + pos;
-        paragraphs[i].parentNode.insertBefore(position, paragraphs[i].nextSibling);
+        let position = document.createElement('div');
+        position.innerHTML =
+            `<input type='text' value='/travel ${pos}' id="input${i}" readonly>`;
+
+        let button = document.createElement('div');
+        button.innerHTML =
+        "<div class=\"tooltip\">\n" +
+            `<button id='copyButton${i}'>\n` +
+            "Copy text" +
+            "  </button>\n" +
+            "</div>";
+
+        paragraphs[i].parentNode.insertBefore(button,paragraphs[i].nextSibling);
+        paragraphs[i].parentNode.insertBefore(position, button);
+
+        document.getElementById(`copyButton${i}`).addEventListener('click', function () {
+            copyToClipboard(i);
+        })
      }
 }
 

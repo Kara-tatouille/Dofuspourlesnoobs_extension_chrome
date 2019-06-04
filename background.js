@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request,) {
     if (request.todo == "showPageAction") {
         //Highlights extension icon
         chrome.tabs.query({active:true, currentWindow: true}, function (tabs) {
@@ -6,4 +6,3 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         });
     }
 });
-

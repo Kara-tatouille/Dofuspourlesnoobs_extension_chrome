@@ -6,12 +6,13 @@ let paragraphs;
 if (document.getElementsByTagName("li")){
     paragraphs = document.getElementsByTagName("li");
 }
-else {
-    paragraphs = document.getElementsByClassName('paragraph');
 
+if (document.getElementsByClassName('paragraph')) {
+    paragraphs = document.getElementsByClassName('paragraph');
 }
 
-let pos;
+
+    let pos;
 
 function checkPosExists(paragraph) {
     if (paragraph.outerHTML.split("[")[1]) {

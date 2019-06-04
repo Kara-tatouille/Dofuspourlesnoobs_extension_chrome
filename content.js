@@ -41,7 +41,7 @@ for (let i=0;i<paragraphs.length;i++) {
         button.innerHTML =
         "<div class=\"tooltip\">\n" +
             `<button id='copyButton${i}'>\n` +
-            "Copy text" +
+            "Copier le texte" +
             "  </button>\n" +
             "</div>";
 

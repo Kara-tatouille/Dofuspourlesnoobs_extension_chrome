@@ -1,56 +1,19 @@
-//Highlights extension icon
-chrome.runtime.sendMessage({todo: "showPageAction"});
+const paragraphs = [...document.querySelectorAll('.paragraph')]
+    .filter(div => {
+        return div.textContent.match(/\[.*]/gm) !== null;
+    })
+;
 
-let paragraphs;
+paragraphs.forEach(paragraph => {
+    const regex = /(\[[^\[]*])/g;
+    const str = paragraph.innerHTML;
+    const subst = `<span class="position" style="font-size: 1.1em; color: hotpink; font-weight: bold; background-color: aliceblue; border-radius: 10px; padding: 5px; cursor: pointer">$1</span>`;
+    paragraph.innerHTML = str.replace(regex, subst)
+});
 
-if (document.getElementsByTagName("li")){
-    paragraphs = document.getElementsByTagName("li");
-}
-
-if (document.getElementsByClassName('paragraph')) {
-    paragraphs = document.getElementsByClassName('paragraph');
-}
-
-
-    let pos;
-
-function checkPosExists(paragraph) {
-    if (paragraph.outerHTML.split("[")[1]) {
-        return true;
-    }
-}
-
-function copyToClipboard(i) {
-    let copyText = document.getElementById(`input${i}`);
-    copyText.select();
-    document.execCommand('copy')
-}
-
-
-
-
-for (let i=0;i<paragraphs.length;i++) {
-     if (checkPosExists(paragraphs[i])) {
-        pos = paragraphs[i].outerHTML.split("[")[1].split("]")[0];
-
-        let position = document.createElement('div');
-        position.innerHTML =
-            `<input type='text' value='/travel ${pos}' id="input${i}" readonly>`;
-
-        let button = document.createElement('div');
-        button.innerHTML =
-        "<div class=\"tooltip\">\n" +
-            `<button id='copyButton${i}'>\n` +
-            "Copier le texte" +
-            "  </button>\n" +
-            "</div>";
-
-        paragraphs[i].parentNode.insertBefore(button,paragraphs[i].nextSibling);
-        paragraphs[i].parentNode.insertBefore(position, button);
-
-        document.getElementById(`copyButton${i}`).addEventListener('click', function () {
-            copyToClipboard(i);
-        })
-     }
-}
-
+document.querySelectorAll('.position').forEach(position => {
+    position.addEventListener('click', event => {
+        const str = '/travel ' + event.target.textContent.replace(/[\[\]]/g, '')
+        navigator.clipboard.writeText(str);
+    })
+})

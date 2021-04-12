@@ -27,8 +27,7 @@
   ],
 
   "permissions": [
-    "storage",
-    "tabs",
+    "clipboardWrite",
     "https://www.dofuspourlesnoobs.com/*"
   ]
 }

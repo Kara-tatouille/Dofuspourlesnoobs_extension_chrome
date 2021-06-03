@@ -1,16 +1,14 @@
 {
     "manifest_version": 2,
     "name": "Dofus autopilotage",
-    "version": "1.0",
-    "description": "Support autopilotage pour Dofuspourlesnoobs!",
+    "version": "1.1",
+    "description": "Support autopilotage pour divers sites Dofus !",
     "icons": {
         "16": "icon16.png",
         "200": "icon200.png"
     },
     "page_action": {
-        "default_icon": "icon200.png",
-        "default_popup": "popup.html",
-        "default_title": "AutopilotageDofuspourlesnoobs"
+        "default_icon": "icon200.png"
     },
     "background": {
         "scripts": [

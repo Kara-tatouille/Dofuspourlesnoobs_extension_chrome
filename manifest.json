@@ -1,33 +1,37 @@
 {
-  "manifest_version": 2,
-  "name": "Dofuspourlesnoobs autopilotage",
-  "version": "1.0",
-  "description": "Support autopilotage pour Dofuspourlesnoobs!",
-  "icons": {
-    "16": "icon16.png",
-    "200": "icon200.png"
-  },
-
-  "page_action": {
-    "default_icon": "icon200.png",
-    "default_popup": "popup.html",
-    "default_title": "AutopilotageDofuspourlesnoobs"
-  },
-
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-
-  "content_scripts": [
-    {
-      "matches": ["https://www.dofuspourlesnoobs.com/*"],
-      "js": ["content.js"]
-    }
-  ],
-
-  "permissions": [
-    "clipboardWrite",
-    "https://www.dofuspourlesnoobs.com/*"
-  ]
+    "manifest_version": 2,
+    "name": "Dofus autopilotage",
+    "version": "1.0",
+    "description": "Support autopilotage pour Dofuspourlesnoobs!",
+    "icons": {
+        "16": "icon16.png",
+        "200": "icon200.png"
+    },
+    "page_action": {
+        "default_icon": "icon200.png",
+        "default_popup": "popup.html",
+        "default_title": "AutopilotageDofuspourlesnoobs"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.dofuspourlesnoobs.com/*",
+                "https://dofus-map.com/hunt"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "clipboardWrite",
+        "https://www.dofuspourlesnoobs.com/*",
+        "https://dofus-map.com/hunt"
+    ]
 }
